@@ -1,89 +1,138 @@
-{{-- resources/views/livewire/pages/home.blade.php --}}
 <div>
-    <!-- Hero Section -->
-    <div class="relative bg-gray-900 h-[600px]">
-        <div class="absolute inset-0">
-            <img src="{{ asset('images/hero-bg.jpg') }}" alt="Saxophonist performing" class="object-cover w-full h-full opacity-50">
-        </div>
-        <div class="relative px-4 py-24 mx-auto max-w-7xl sm:py-32 sm:px-6 lg:px-8">
-            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Artist Name
+<!-- Hero Section cu video -->
+<div class="relative h-screen overflow-hidden bg-gray-900">
+    <!-- Video Background -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+        <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            class="object-cover w-full h-full"
+            loading="lazy"
+            preload="none"
+            poster="{{ asset('images/hero-poster.jpg') }}"
+        >
+            <source src="{{ asset('images/hero-bg.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-20 flex items-center h-full">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <!-- Badge/Label -->
+            <div class="inline-flex items-center px-4 py-2 mb-8 rounded-full bg-white/10 backdrop-blur-sm"
+                 data-aos="fade-down" 
+                 data-aos-delay="200">
+                <span class="flex items-center">
+                    <span class="w-2 h-2 mr-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class="text-sm font-medium text-white">Saxofonist Professional</span>
+                </span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="mb-6 text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl"
+                data-aos="fade-up" 
+                data-aos-delay="400">
+                Mihai Stanciuc
             </h1>
-            <p class="max-w-3xl mt-6 text-xl text-gray-300">
-                Professional Saxophonist | Performer | Composer
+
+            <!-- Subtitle -->
+            <p class="max-w-3xl mb-8 text-xl text-gray-200 md:text-2xl"
+               data-aos="fade-up" 
+               data-aos-delay="600">
+                Live Performance | Evenimente Private | Jazz & Blues
             </p>
-            <div class="mt-10">
-                <a href="{{ route('contact') }}" class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700">
-                    Book Now
+
+            <!-- CTAs -->
+            <div class="flex flex-col gap-4 sm:flex-row"
+                 data-aos="fade-up" 
+                 data-aos-delay="800">
+                <a href="{{ route('contact') }}" 
+                   class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white transition-all duration-300 transform bg-red-500 rounded-lg hover:bg-red-600 hover:-translate-y-1">
+                    PROGRAMEAZĂ UN EVENIMENT →
+                </a>
+                <a href="{{ route('gallery') }}" 
+                   class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white transition-all duration-300 transform border-2 border-white rounded-lg hover:bg-white hover:text-gray-900 hover:-translate-y-1">
+                    VEZI GALERIA
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Featured Events Section -->
-    <div class="py-12 bg-white">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Upcoming Events
-                </h2>
-            </div>
+    <!-- Wave Divider -->
+    <div class="absolute bottom-0 left-0 z-20 w-full">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120L60 112.5C120 105 240 90 360 82.5C480 75 600 75 720 75C840 75 960 75 1080 82.5C1200 90 1320 105 1380 112.5L1440 120V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V120Z" fill="white"/>
+        </svg>
+    </div>
+</div>
 
-            <div class="mt-10">
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    @foreach($upcomingEvents as $event)
-                        <div class="overflow-hidden bg-white rounded-lg shadow">
-                            <div class="p-6">
-                                <h3 class="text-lg font-medium text-gray-900">
-                                    {{ $event->title }}
-                                </h3>
-                                <p class="mt-2 text-gray-600">
-                                    {{ $event->date->format('F j, Y g:i A') }}
-                                </p>
-                                <p class="mt-2 text-gray-600">
-                                    {{ $event->location }}
-                                </p>
-                                @if($event->ticket_link)
-                                    <div class="mt-4">
-                                        <a href="{{ $event->ticket_link }}" class="text-blue-600 hover:text-blue-500">
-                                            Get Tickets →
-                                        </a>
-                                    </div>
-                                @endif
-                            </div>
+<!-- Evenimente Section -->
+<div class="py-20 bg-white">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="mb-4 text-4xl font-bold text-gray-900" data-aos="fade-up">
+                Evenimente Viitoare
+            </h2>
+            <p class="mb-12 text-xl text-gray-600" data-aos="fade-up" data-aos-delay="200">
+                Rezervă-ți din timp locul la următoarele mele apariții
+            </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" data-aos="fade-up" data-aos-delay="400">
+            @foreach($upcomingEvents as $event)
+                <div class="overflow-hidden transition-all duration-300 bg-white shadow-lg rounded-xl hover:shadow-xl">
+                    <div class="p-8">
+                        <div class="mb-2 text-sm font-medium text-red-500">
+                            {{ $event->date->format('j F Y, H:i') }}
                         </div>
-                    @endforeach
+                        <h3 class="mb-3 text-xl font-bold text-gray-900">
+                            {{ $event->title }}
+                        </h3>
+                        <p class="mb-4 text-gray-600">
+                            {{ $event->location }}
+                        </p>
+                        @if($event->ticket_link)
+                            <a href="{{ $event->ticket_link }}" 
+                               class="inline-flex items-center font-medium text-red-500 hover:text-red-600">
+                                Rezervă un loc →
+                            </a>
+                        @endif
+                    </div>
                 </div>
-                
-                @if($upcomingEvents->isEmpty())
-                    <p class="text-center text-gray-500">No upcoming events at the moment.</p>
-                @endif
-                
-                <div class="mt-6 text-center">
-                    <a href="{{ route('events') }}" class="text-blue-600 hover:text-blue-500">
-                        View All Events →
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
+</div>
 
-    <!-- Biography Section -->
-    <div class="py-12 bg-gray-50">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    About Me
-                </h2>
-                <p class="max-w-2xl mt-4 text-xl text-gray-500 lg:mx-auto">
-                    Professional saxophonist with over X years of experience...
-                </p>
-            </div>
-            <div class="mt-6 text-center">
-                <a href="{{ route('about') }}" class="text-blue-600 hover:text-blue-500">
-                    Read More →
+<!-- Biography Section -->
+<div class="py-20 bg-gray-50">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="lg:text-center" data-aos="fade-up">
+            <h2 class="mb-6 text-4xl font-bold text-gray-900">
+                Saxo Mike
+            </h2>
+            <p class="max-w-3xl mx-auto text-xl leading-relaxed text-gray-600">
+                Absolvent al Academiei de Muzică "Gheorghe Dima" Cluj-Napoca, Stanciuc Mihai, cunoscut și sub numele de Saxo Mike, aduce o notă distinctă în lumea muzicii, de la jazz soft la muzică ambientală.
+            </p>
+            <div class="mt-8">
+                <a href="{{ route('about') }}" 
+                   class="inline-flex items-center text-lg font-medium text-red-500 hover:text-red-600 group">
+                    Află mai multe
+                    <svg class="w-5 h-5 ml-2 transition-transform transform group-hover:translate-x-1" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="2" 
+                              d="M9 5l7 7-7 7"/>
+                    </svg>
                 </a>
             </div>
         </div>
     </div>
+</div>
 </div>

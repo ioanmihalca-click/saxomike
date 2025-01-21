@@ -9,7 +9,7 @@ use Livewire\Attributes\Title;
 
 class Home extends Component
 {
-    #[Title('Home')]
+    #[Title('Home | saxomike.ro')]
     public function render()
     {
         $upcomingEvents = Event::where('date', '>=', now())

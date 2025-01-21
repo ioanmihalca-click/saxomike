@@ -1,27 +1,40 @@
 <?php
 
+
 namespace App\Livewire\Pages;
 
+use App\Models\Media;
+use App\Models\Category;
 use Livewire\Component;
-use Livewire\Attributes\Title;
 use Livewire\WithPagination;
+use Livewire\Attributes\Title;
 
 class Gallery extends Component
 {
     use WithPagination;
 
-    #[Title('Gallery')]
     public $activeCategory = 'all';
-    public $categories = ['all', 'performances', 'studio', 'behind-the-scenes'];
 
-    public function setCategory($category)
-    {
-        $this->activeCategory = $category;
-        $this->resetPage();
-    }
-
+    #[Title('Gallery')]
     public function render()
     {
-        return view('livewire.pages.gallery');
+        $mediaItems = Media::when($this->activeCategory !== 'all', function($query) {
+            $query->where('category_id', $this->activeCategory);
+        })
+        ->latest()
+        ->paginate(9);
+
+        $categories = Category::all();
+
+        return view('livewire.pages.gallery', [
+            'mediaItems' => $mediaItems,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function setCategory($categoryId)
+    {
+        $this->activeCategory = $categoryId;
+        $this->resetPage();
     }
 }
