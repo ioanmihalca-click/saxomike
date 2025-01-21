@@ -2,73 +2,45 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
+use App\Filament\Resources\MediaResource\Pages;
 use App\Models\Media;
+use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\MediaResource\Pages\EditMedia;
-use App\Filament\Resources\MediaResource\Pages\ListMedia;
-use App\Filament\Resources\MediaResource\Pages\CreateMedia;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables;
+use Filament\Tables\Table;
 
 class MediaResource extends Resource
 {
     protected static ?string $model = Media::class;
+    protected static ?string $navigationIcon = 'heroicon-o-video-camera';
+    protected static ?string $modelLabel = 'Media';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Section::make()
+                Forms\Components\Card::make()
                     ->schema([
                         Forms\Components\TextInput::make('title')
                             ->required()
                             ->maxLength(255),
                             
-                        Forms\Components\Select::make('type')
-                            ->options([
-                                'image' => 'Image',
-                                'youtube' => 'YouTube Video'
-                            ])
-                            ->required()
-                            ->reactive(),
-                            
-                            SpatieMediaLibraryFileUpload::make('gallery')
-                            ->collection('gallery')
-                            ->image()
-                            ->imageEditor()
-                            ->openable()
-                            ->downloadable()
-                            ->multiple()
-                            ->responsiveImages()
-                            ->visible(fn ($get) => $get('type') === 'image'),
-                            
-                        Forms\Components\TextInput::make('youtube_url')
+                        Forms\Components\TextInput::make('youtube_id')
                             ->label('YouTube URL')
                             ->required()
-                            ->visible(fn ($get) => $get('type') === 'youtube')
                             ->afterStateUpdated(function ($state, callable $set) {
                                 $youtubeId = Media::getYoutubeId($state);
                                 if ($youtubeId) {
-                                    $set('path', $youtubeId);
+                                    $set('youtube_id', $youtubeId);
                                 }
                             }),
-                            
-                        Forms\Components\Select::make('category_id')
-                            ->relationship('category', 'name')
-                            ->required(),
-                            
-                        Forms\Components\TextInput::make('alt_text')
-                            ->maxLength(255),
                             
                         Forms\Components\Textarea::make('description')
                             ->rows(3)
                             ->maxLength(500),
                     ])
-                    ->columns(2),
+                    ->columns(1),
             ]);
     }
 
@@ -79,41 +51,9 @@ class MediaResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
-                    
-                Tables\Columns\TextColumn::make('type')
-                    ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'youtube' => 'danger',
-                        'image' => 'success',
-                        default => 'gray',
-                    }),
-                    
-                Tables\Columns\TextColumn::make('category.name')
-                    ->sortable(),
-                    
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(),
-            ])
-            ->filters([
-                Tables\Filters\SelectFilter::make('type')
-                    ->options([
-                        'youtube' => 'YouTube',
-                        'image' => 'Image',
-                    ]),
-                    
-                Tables\Filters\SelectFilter::make('category')
-                    ->relationship('category', 'name'),
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                    ->sortable(),
             ])
             ->defaultSort('created_at', 'desc');
     }
@@ -128,21 +68,9 @@ class MediaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListMedia::route('/'),
-            'create' => CreateMedia::route('/create'),
-            'edit' => EditMedia::route('/{record}/edit'),
+            'index' => Pages\ListMedia::route('/'),
+            'create' => Pages\CreateMedia::route('/create'),
+            'edit' => Pages\EditMedia::route('/{record}/edit'),
         ];
-    }
-    
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
-    
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withCount('category')
-            ->latest();
     }
 }
