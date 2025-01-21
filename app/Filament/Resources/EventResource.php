@@ -4,17 +4,14 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use Pages\EditEvent;
 use App\Models\Event;
-use Pages\ListEvents;
-use Pages\CreateEvent;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\MediaResource\Pages\EditMedia;
-use App\Filament\Resources\MediaResource\Pages\ListMedia;
-use App\Filament\Resources\MediaResource\Pages\CreateMedia;
+use App\Filament\Resources\EventResource\Pages\EditEvent;
+use App\Filament\Resources\EventResource\Pages\ListEvents;
+use App\Filament\Resources\EventResource\Pages\CreateEvent;
 
 
 class EventResource extends Resource
@@ -35,10 +32,12 @@ class EventResource extends Resource
                             ->required()
                             ->maxLength(255),
 
-                        Forms\Components\DateTimePicker::make('date')
+                            Forms\Components\DateTimePicker::make('date')
                             ->label('Data și ora')
                             ->required()
-                            ->format('d/m/Y H:i'),
+                            ->native(false) // Folosește date picker-ul Filament în loc de cel nativ
+                            ->displayFormat('d/m/Y H:i')  // Formatul de afișare
+                            ->format('Y-m-d H:i:s'),      // Formatul de stocare în baza de date
 
                         Forms\Components\TextInput::make('location')
                             ->label('Locație')
@@ -133,9 +132,9 @@ class EventResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListMedia::route('/'),
-            'create' => CreateMedia::route('/create'),
-            'edit' => EditMedia::route('/{record}/edit'),
+            'index' => ListEvents::route('/'),
+            'create' => CreateEvent::route('/create'),
+            'edit' => EditEvent::route('/{record}/edit'),
         ];
     }
 }

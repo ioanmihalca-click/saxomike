@@ -18,15 +18,15 @@
                     </a>
                     <a href="{{ route('about') }}" wire:navigate
                         class="{{ request()->routeIs('about') ? 'border-blue-500' : 'border-transparent' }} text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        About
+                        Despre
                     </a>
                     <a href="{{ route('gallery') }}" wire:navigate
                         class="{{ request()->routeIs('gallery') ? 'border-blue-500' : 'border-transparent' }} text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Gallery
+                        Galerie Media
                     </a>
                     <a href="{{ route('events') }}" wire:navigate
                         class="{{ request()->routeIs('events') ? 'border-blue-500' : 'border-transparent' }} text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Events
+                        Evenimente
                     </a>
                     <a href="{{ route('contact') }}" wire:navigate
                         class="{{ request()->routeIs('contact') ? 'border-blue-500' : 'border-transparent' }} text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
@@ -59,15 +59,15 @@
             </a>
             <a href="{{ route('about') }}" wire:navigate
                 class="{{ request()->routeIs('about') ? 'bg-blue-50 border-blue-500 text-blue-700' : 'border-transparent text-gray-600' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-                About
+                Despre
             </a>
             <a href="{{ route('gallery') }}" wire:navigate
                 class="{{ request()->routeIs('gallery') ? 'bg-blue-50 border-blue-500 text-blue-700' : 'border-transparent text-gray-600' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-                Gallery
+                Galerie Media
             </a>
             <a href="{{ route('events') }}" wire:navigate
                 class="{{ request()->routeIs('events') ? 'bg-blue-50 border-blue-500 text-blue-700' : 'border-transparent text-gray-600' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-                Events
+                Evenimente
             </a>
             <a href="{{ route('contact') }}" wire:navigate
                 class="{{ request()->routeIs('contact') ? 'bg-blue-50 border-blue-500 text-blue-700' : 'border-transparent text-gray-600' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
