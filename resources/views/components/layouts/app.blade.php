@@ -17,7 +17,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+@livewireStyles
 </head>
 
 <body class="min-h-screen bg-gray-100">
@@ -31,6 +31,7 @@
     <script>
         AOS.init();
     </script>
+    @livewireScripts
 </body>
 
 </html>
