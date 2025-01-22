@@ -14,7 +14,7 @@
                     Despre Mine
                 </h1>
                 <p class="max-w-2xl mx-auto mt-4 text-xl text-gray-300" data-aos="fade-up" data-aos-delay="200">
-                    Saxofonist profesionist | Performer | Artist
+                    Saxofonist profesionist | Performer | Compozitor
                 </p>
             </div>
         </div>
