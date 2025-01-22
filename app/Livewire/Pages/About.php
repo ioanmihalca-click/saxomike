@@ -7,7 +7,7 @@ use Livewire\Attributes\Title;
 
 class About extends Component
 {
-    #[Title('Despre | saxomike.ro')]
+    #[Title('Despre | Mihai Stanciuc - Saxofonist Profesionist | SaxoMike')]
     public function render()
     {
         return view('livewire.pages.about');

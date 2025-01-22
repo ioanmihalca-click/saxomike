@@ -12,7 +12,7 @@ class Gallery extends Component
 {
     use WithPagination;
 
-    #[Title('Galerie Media | saxomike.ro')]
+    #[Title('Galerie Media | Mihai Stanciuc - Saxofonist Profesionist | SaxoMike')]
     public function render()
     {
         return view('livewire.pages.gallery', [

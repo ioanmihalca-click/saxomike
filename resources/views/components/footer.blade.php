@@ -6,7 +6,7 @@
             <div class="transition-all duration-300 hover:transform hover:scale-105">
                 <h3 class="pb-2 mb-4 text-lg font-semibold text-white border-b border-indigo-900/30">Contact</h3>
                 <div class="space-y-3">
-                    <a href="https://wa.me/40123456789" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wa.me/40751458644" target="_blank" rel="noopener noreferrer"
                         class="flex items-center group">
                         <!-- WhatsApp Icon -->
                         <svg class="w-5 h-5 mr-2 transition-colors group-hover:text-indigo-400" fill="currentColor"

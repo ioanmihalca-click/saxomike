@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 
 class Contact extends Component
 {
-    #[Title('Contact')]
+    #[Title('Contact | Mihai Stanciuc - Saxofonist Profesionist | SaxoMike')]
     public $name = '';
     public $email = '';
     public $message = '';
