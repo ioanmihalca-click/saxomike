@@ -1,2 +1,13 @@
+# Allow all robots full access
 User-agent: *
-Disallow:
+Allow: /
+
+# Permit all subdirectories
+Allow: /about
+Allow: /gallery
+Allow: /events
+Allow: /contact
+
+# Sitemap location
+https://saxomike.ro/sitemap.xml
+
