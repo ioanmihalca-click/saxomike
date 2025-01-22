@@ -3,7 +3,7 @@
 <div class="relative h-screen overflow-hidden bg-gray-900">
     <!-- Video Background -->
     <div class="absolute inset-0">
-        <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+        <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/40 to-transparent"></div>
         <video 
             autoplay 
             muted 
@@ -19,7 +19,7 @@
     </div>
 
     <!-- Hero Content -->
-    <div class="relative z-20 flex items-center h-full">
+    <div class="relative z-20 flex items-center h-full pb-24">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <!-- Badge/Label -->
             <div class="inline-flex items-center px-4 py-2 mb-8 rounded-full bg-white/10 backdrop-blur-sm"
@@ -61,10 +61,19 @@
         </div>
     </div>
 
-    <!-- Wave Divider -->
-    <div class="absolute bottom-0 left-0 z-20 w-full">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 112.5C120 105 240 90 360 82.5C480 75 600 75 720 75C840 75 960 75 1080 82.5C1200 90 1320 105 1380 112.5L1440 120V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V120Z" fill="white"/>
+ <!-- Wave Divider nou -->
+    <div class="absolute bottom-0 left-0 right-0 w-full">
+        <svg 
+            viewBox="0 0 1440 156" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg" 
+            preserveAspectRatio="none"
+            class="w-full h-[156px]"
+        >
+            <path 
+                d="M0 156H1440V60C1200 120 720 0 480 60C240 120 120 30 0 60V156Z" 
+                fill="white"
+            />
         </svg>
     </div>
 </div>

@@ -2,7 +2,7 @@
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="mb-12 text-center">
-            <h1 class="text-4xl font-bold text-gray-900">Galerie Video</h1>
+            <h1 class="text-4xl font-bold text-gray-900">Galerie Media</h1>
             <p class="mt-4 text-xl text-gray-600">Experiențe și momente din performanțele mele</p>
         </div>
 
