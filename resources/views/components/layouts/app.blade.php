@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary Meta Tags -->
     <title>{{ $title ?? 'Mihai Stanciuc - Saxofonist Profesionist | SaxoMike' }}</title>
     <meta name="title" content="{{ $title ?? 'Mihai Stanciuc - Saxofonist Profesionist | SaxoMike' }}">
-    <meta name="description" content="Saxofonist profesionist pentru evenimente private, cafe concert, jazz & blues. Mihai Stanciuc (SaxoMike) oferă performanțe live memorabile în Cluj-Napoca și împrejurimi.">
-    
+    <meta name="description"
+        content="Saxofonist profesionist pentru evenimente private, cafe concert, jazz & blues. Mihai Stanciuc (SaxoMike) oferă performanțe live memorabile în Cluj-Napoca și împrejurimi.">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $title ?? 'Mihai Stanciuc - Saxofonist Profesionist | SaxoMike' }}">
-    <meta property="og:description" content="Saxofonist profesionist pentru evenimente private, cafe concert, jazz & blues. Mihai Stanciuc (SaxoMike) oferă performanțe live memorabile în Cluj-Napoca și împrejurimi.">
+    <meta property="og:description"
+        content="Saxofonist profesionist pentru evenimente private, cafe concert, jazz & blues. Mihai Stanciuc (SaxoMike) oferă performanțe live memorabile în Cluj-Napoca și împrejurimi.">
     <meta property="og:image" content="{{ asset('images/OG-saxomike.jpg') }}">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="{{ $title ?? 'Mihai Stanciuc - Saxofonist Profesionist | SaxoMike' }}">
-    <meta property="twitter:description" content="Saxofonist profesionist pentru evenimente private, cafe concert, jazz & blues. Mihai Stanciuc (SaxoMike) oferă performanțe live memorabile în Cluj-Napoca și împrejurimi.">
+    <meta property="twitter:description"
+        content="Saxofonist profesionist pentru evenimente private, cafe concert, jazz & blues. Mihai Stanciuc (SaxoMike) oferă performanțe live memorabile în Cluj-Napoca și împrejurimi.">
     <meta property="twitter:image" content="{{ asset('images/OG-saxomike.jpg') }}">
 
     <!-- Additional SEO Tags -->
     <meta name="author" content="Mihai Stanciuc">
-    <meta name="keywords" content="saxofonist, evenimente private, jazz, blues, cafe concert, saxofon, muzică live, Cluj-Napoca, SaxoMike, Mihai Stanciuc">
+    <meta name="keywords"
+        content="saxofonist, evenimente private, jazz, blues, cafe concert, saxofon, muzică live, Cluj-Napoca, SaxoMike, Mihai Stanciuc">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Romanian">
     <meta name="revisit-after" content="7 days">
@@ -42,7 +47,7 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
+
     <!-- Schema.org markup for Google -->
     <script type="application/ld+json">
     {
@@ -67,6 +72,19 @@
             "https://instagram.com/saxomike"
         ]
     }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF59L6890F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QF59L6890F');
     </script>
 
     @livewireStyles
