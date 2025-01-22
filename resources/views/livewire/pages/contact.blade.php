@@ -1,51 +1,81 @@
+<div class="relative py-20">
+    <div class="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <!-- Header Section -->
+        <div class="text-center">
+            <h1 class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl" data-aos="fade-down">
+                Contact
+            </h1>
+            <p class="max-w-2xl mx-auto mb-16 text-lg text-gray-600" data-aos="fade-up" data-aos-delay="100">
+                Hai să discutăm despre următorul tău eveniment! Completează formularul și voi reveni cu un răspuns în cel mai scurt timp.
+            </p>
+        </div>
 
-<div class="py-12">
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="mb-8 text-4xl font-bold">Contact</h1>
+        <div class="max-w-2xl mx-auto">
+            <div class="p-8 bg-white shadow-sm rounded-2xl" data-aos="fade-up">
+                <form wire:submit="submit" class="space-y-6">
+                    <div class="grid gap-6 md:grid-cols-2">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nume</label>
+                            <input type="text" 
+                                   wire:model="name" 
+                                   id="name"
+                                   placeholder="Numele tău"
+                                   class="block w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:ring-1 focus:ring-red-500 focus:border-red-500">
+                            @error('name') 
+                                <span class="mt-1 text-sm text-red-500">{{ $message }}</span> 
+                            @enderror
+                        </div>
 
-            @if (session()->has('message'))
-                <div class="relative px-4 py-3 mb-6 text-green-700 bg-green-100 border border-green-400 rounded">
-                    {{ session('message') }}
-                </div>
-            @endif
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                            <input type="email" 
+                                   wire:model="email" 
+                                   id="email"
+                                   placeholder="email@example.com"
+                                   class="block w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:ring-1 focus:ring-red-500 focus:border-red-500">
+                            @error('email') 
+                                <span class="mt-1 text-sm text-red-500">{{ $message }}</span> 
+                            @enderror
+                        </div>
+                    </div>
 
-            <form wire:submit="submit" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" wire:model="name" id="name"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
-                    @error('name') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
-                </div>
+                    <div>
+                        <label for="subject" class="block mb-2 text-sm font-medium text-gray-900">Subiect</label>
+                        <input type="text" 
+                               wire:model="subject" 
+                               id="subject"
+                               placeholder="Subiectul mesajului"
+                               class="block w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:ring-1 focus:ring-red-500 focus:border-red-500">
+                        @error('subject') 
+                            <span class="mt-1 text-sm text-red-500">{{ $message }}</span> 
+                        @enderror
+                    </div>
 
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" wire:model="email" id="email"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
-                    @error('email') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
-                </div>
+                    <div>
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Mesaj</label>
+                        <textarea wire:model="message" 
+                                  id="message" 
+                                  rows="5"
+                                  placeholder="Scrie mesajul tău aici..."
+                                  class="block w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50/50 focus:ring-1 focus:ring-red-500 focus:border-red-500"></textarea>
+                        @error('message') 
+                            <span class="mt-1 text-sm text-red-500">{{ $message }}</span> 
+                        @enderror
+                    </div>
 
-                <div>
-                    <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
-                    <input type="text" wire:model="subject" id="subject"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
-                    @error('subject') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
-                </div>
+                    @if (session()->has('message'))
+                        <div class="p-4 text-sm text-green-700 rounded-lg bg-green-50">
+                            {{ session('message') }}
+                        </div>
+                    @endif
 
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                    <textarea wire:model="message" id="message" rows="4"
-                        class="block w-full mt-1 border-gray-300 rounded-md shadow-sm"></textarea>
-                    @error('message') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
-                </div>
-
-                <div>
                     <button type="submit"
-                        class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700">
-                        Send Message
+                            class="w-full px-6 py-4 text-base font-medium text-white transition-all duration-200 bg-red-500 rounded-lg hover:bg-red-600">
+                        <span>Trimite mesajul</span>
+                        <span class="ml-2">→</span>
                     </button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
