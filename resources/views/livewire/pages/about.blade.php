@@ -10,10 +10,10 @@
 
         <div class="relative z-20 flex items-center justify-center h-full">
             <div class="text-center">
-                <h1 class="text-5xl font-bold text-white md:text-6xl lg:text-7xl">
+                <h1 class="text-5xl font-bold text-white md:text-6xl lg:text-7xl" data-aos="fade-down">
                     Despre Mine
                 </h1>
-                <p class="max-w-2xl mx-auto mt-4 text-xl text-gray-300">
+                <p class="max-w-2xl mx-auto mt-4 text-xl text-gray-300" data-aos="fade-up" data-aos-delay="200">
                     Saxofonist profesionist | Performer | Artist
                 </p>
             </div>
@@ -25,7 +25,7 @@
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="items-start lg:grid lg:grid-cols-2 lg:gap-24">
                 <!-- Left Column - Biography and Specialties -->
-                <div class="lg:sticky lg:top-8">
+                <div class="lg:sticky lg:top-8" data-aos="fade-right" data-aos-duration="1000">
                     <!-- Biography -->
                     <div class="mb-12 prose prose-lg max-w-none">
                         <h2 class="mb-8 text-4xl font-bold text-gray-900">Biografie</h2>
@@ -43,8 +43,10 @@
                         </div>
                     </div>
 
-                    <div class="p-8 text-white shadow-xl bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl">
-                        <h3 class="mb-8 text-2xl font-semibold">Specializări</h3>
+   <div class="p-8 text-white shadow-xl bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl" 
+                         data-aos="fade-up" 
+                         data-aos-delay="200">
+                                                 <h3 class="mb-8 text-2xl font-semibold">Specializări</h3>
                         <ul class="space-y-5">
                             <li class="flex items-center space-x-4">
                                 <span
@@ -113,21 +115,26 @@
 
                 <!-- Right Column - Image Gallery -->
                 <div class="mt-12 space-y-8 lg:mt-0">
-                    <div class="relative">
-                        <div
-                            class="absolute inset-0 transform bg-gradient-to-r from-red-500 to-purple-600 rounded-2xl rotate-1 opacity-10">
+                    <div class="relative" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="absolute inset-0 transform bg-gradient-to-r from-red-500 to-purple-600 rounded-2xl rotate-1 opacity-10">
                         </div>
-                        <img src="{{ asset('images/mihai-stanciuc-despre.webp') }}" alt="Saxo Mike performing"
-                            class="relative rounded-2xl shadow-2xl w-full object-cover aspect-[3/4]" loading="lazy">
+                        <img src="{{ asset('images/mihai-stanciuc-despre.webp') }}" 
+                             alt="Saxo Mike performing"
+                             class="relative rounded-2xl shadow-2xl w-full object-cover aspect-[3/4]" 
+                             loading="lazy">
                     </div>
 
                     <!-- Experience Highlights -->
                     <div class="grid grid-cols-2 gap-6 mt-12">
-                        <div class="p-6 text-center bg-gray-50 rounded-xl">
+                        <div class="p-6 text-center bg-gray-50 rounded-xl" 
+                             data-aos="fade-up" 
+                             data-aos-delay="400">
                             <div class="mb-2 text-4xl font-bold text-red-500">10+</div>
                             <div class="text-gray-600">Ani de experiență</div>
                         </div>
-                        <div class="p-6 text-center bg-gray-50 rounded-xl">
+                        <div class="p-6 text-center bg-gray-50 rounded-xl" 
+                             data-aos="fade-up" 
+                             data-aos-delay="600">
                             <div class="mb-2 text-4xl font-bold text-red-500">500+</div>
                             <div class="text-gray-600">Evenimente live</div>
                         </div>
