@@ -27,7 +27,7 @@
                  data-aos-delay="200">
                 <span class="flex items-center">
                     <span class="w-2 h-2 mr-2 bg-green-400 rounded-full animate-pulse"></span>
-                    <span class="text-sm font-medium text-white">Saxofonist Professional</span>
+                    <span class="text-sm font-medium text-white">Saxofonist Profesionist</span>
                 </span>
             </div>
 
