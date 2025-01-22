@@ -11,7 +11,7 @@ class Events extends Component
 {
     use WithPagination;
 
-    #[Title('Evenimente')]
+    #[Title('Evenimente | saxomike.ro')]
     public function render()
     {
         $events = Event::where('date', '>=', now())

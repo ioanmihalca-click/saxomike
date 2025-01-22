@@ -7,7 +7,7 @@ use Livewire\Attributes\Title;
 
 class Contact extends Component
 {
-    #[Title('Contact')]
+    #[Title('Contact | saxomike.ro')]
     public $name = '';
     public $email = '';
     public $message = '';
