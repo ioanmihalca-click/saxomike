@@ -51,18 +51,18 @@
     <!-- Schema.org markup for Google -->
     <script type="application/ld+json">
     {
-        "@context": "http://schema.org",
-        "@type": "MusicGroup",
+        "@@context": "http://schema.org",
+        "@@type": "MusicGroup",
         "name": "SaxoMike",
         "alternateName": "Mihai Stanciuc",
-        "@id": "{{ url('/') }}",
+        "@@id": "{{ url('/') }}",
         "image": "{{ asset('images/OG-saxomike.jpg') }}",
         "description": "Saxofonist profesionist pentru evenimente private, cafe concert, jazz & blues. Mihai Stanciuc (SaxoMike) oferă performanțe live memorabile în Cluj-Napoca și împrejurimi.",
         "url": "{{ url('/') }}",
         "telephone": "+40751458644",
         "email": "contact@saxomike.ro",
         "address": {
-            "@type": "PostalAddress",
+            "@@type": "PostalAddress",
             "addressLocality": "Cluj-Napoca",
             "addressCountry": "RO"
         },
